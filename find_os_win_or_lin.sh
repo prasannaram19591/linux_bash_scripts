@@ -11,8 +11,8 @@ do
   ip=`echo $j | awk '{print $2}' | sed 's/,//' | sed 's/;//' | awk -F "=" '{print $2}'`
   ttl=`ping $ip -c 1 | grep ttl | awk '{print $6}' |  awk -F "=" '{print $2}'`
   if [ $ttl -ge "100" ]; then
-  echo "$name with $ip is a Windows machine.." >> windows_machines.txt
+    echo "$name with $ip is a Windows machine.." >> windows_machines.txt
   else
-  echo "$name with $ip is a Linux machine.." >> linux_machines.txt
+    echo "$name with $ip is a Linux machine.." >> linux_machines.txt
   fi
 done
